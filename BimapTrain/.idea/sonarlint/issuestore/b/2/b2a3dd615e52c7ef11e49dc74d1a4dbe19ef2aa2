@@ -1,0 +1,19 @@
+
+S
+java:S1068"1Remove this unused "homeViewModel" private field.(¿­¶üÿÿÿÿ8ÅŸ„ŞÛ.
+G
+java:S1068"*Remove this unused "bitmap" private field.(¢üÀ–8™óö«İ.
+w
+java:S1450"\Remove the "homeViewModel" field and declare it as a local variable in the relevant methods.(¿­¶üÿÿÿÿ
+K
+java:S1659!")Declare "layoutInput" on a separate line.(ÖÖ‘¦şÿÿÿÿ8ô†ªİ.
+M
+java:S1128"0Remove this unused import 'java.io.InputStream'.(¹»º8È¿â«İ.
+D
+java:S1659$"'Declare "layoutBtn" on a separate line.(†‡ˆİ8©ß•ªİ.
+M
+java:S1172~"+Remove this unused method parameter "view".(º¼¸ùøÿÿÿÿ8ß¾óùÛ.
+U
+java:S1161&":Add the "@Override" annotation above this method signature(î•Éğûÿÿÿÿ
+R
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8È¿â«İ.

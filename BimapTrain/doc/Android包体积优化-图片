@@ -1,0 +1,7 @@
+
+在res中的miomap中图片重复和正确的dpi文件
+
+1.使用.9图代替png、jpg的大图
+2.使用 Android自带的xml生成绘制背景drawable代替图片
+
+Android XML shape 标签使用详解（apk瘦身，减少内存好帮手）

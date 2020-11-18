@@ -1,0 +1,25 @@
+
+
+Android中使用Matrix对图像进行缩放、旋转、平移、斜切等变换的。
+
+
+Matrix是一个3*3的矩阵，其值对应如下：
+
+下面给出具体坐标对应变形的属性
+|scaleX, skewX, translateX|
+|skewY, scaleY, translateY|
+|0       ,0        , scale|
+
+顺带一提，最后一行的三个参数分别为0，0，1。
+是固定值，那为什么要这样做，明明六个参数的可以做的事情为什么要变成9个？
+其实这个在线代里面叫做齐次方程，简而言之就是为了方便计算
+
+
+Matrix提供了一些方法来控制图片变换：
+setTranslate(float dx,float dy)：控制Matrix进行位移。
+setSkew(float kx,float ky)：控制Matrix进行倾斜，kx、ky为X、Y方向上的比例。
+setSkew(float kx,float ky,float px,float py)：控制Matrix以px、py为轴心进行倾斜，kx、ky为X、Y方向上的倾斜比例。
+setRotate(float degrees)：控制Matrix进行depress角度的旋转，轴心为（0,0）。
+setRotate(float degrees,float px,float py)：控制Matrix进行depress角度的旋转，轴心为(px,py)。
+setScale(float sx,float sy)：设置Matrix进行缩放，sx、sy为X、Y方向上的缩放比例。
+setScale(float sx,float sy,float px,float py)：设置Matrix以(px,py)为轴心进行缩放，sx、sy为X、Y方向上的缩放比

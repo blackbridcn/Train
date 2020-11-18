@@ -1,0 +1,73 @@
+
+1.同一张图片在电脑上显示的大小和在Android手机上的图片在内存的大小是不一样的
+首先在的电脑上的图片（png或者jpg）只是这张图片的容器，它们是经过相对应的压缩算法将原图每个像素点信息转换用另一种数据格式表示，
+以此达到压缩目的，减少图片文件大小，这里图片大小可以理解为经过压缩后图片需要的磁盘空间
+
+在Android的内存中是采用了位图Bitmap的方式加载显示一张图片的，一张图片加载进Android内存中的需要最小空间为：分辨率 * 每个像素点的大小(with * height * pixels size) ；
+即这里理论上Android内存中加载无损图片（相对源图片），所有理论上一般情况都是同一张图片在Android中计算出的内存size是大于在在电脑上显示的siez；
+
+图片在硬盘上占用的磁盘空间大小，与在内存中占用的内存大小完全不一样，不是一个概念，不要混淆
+
+2.
+
+
+图片格式
+Android中常见的图片 png，jpeg和webp；
+png：无损压缩图片格式，支持Alpha通道，Android切图素材多采用此格式；
+jpeg：有损压缩图片格式，不支持背景透明，适用于照片等色彩丰富的大图压缩，不适合logo；
+webp：是一种同时提供了有损压缩和无损压缩的图片格式，派生自视频编码格式VP8，从谷歌官网来看，
+无损webp平均比png小26%，有损的webp平均比jpeg小25%~34%，
+无损webp支持Alpha通道，有损webp在一定的条件下同样支持，
+有损webp在Android4.0（API 14）之后支持，
+无损和透明在Android4.3（API18）之后支持
+
+Android CompressFormat.JPEG、CompressFormat.PNG、CompressFormat.WEBP
+
+Android中有两种压缩图片的方法
+质量压缩：
+降低图片的呈现质量，降低清晰度；实现降低图片磁盘空间，但是内存空间不会发生改变；
+
+尺寸压缩：
+降低图片长宽像素尺寸，降低图片的在将图片加载到内存过程中将图片的长宽进行压缩，获取长宽压缩版的的图片
+
+
+具体实现
+Android质量压缩
+1.AndroidSDK提供的函数
+bitmap.compress(Bitmap.CompressFormat.JPEG, quality, byteArrayOutputStream );
+  主要是通过设置quality来降低质量，0-100范围。
+
+  PS：PNG格式会忽略这个参数，所以Bitmap.CompressFormat不可以选择PNG格式
+    只能缩放整数倍
+
+2.色彩模式换
+使用RGB_565也会比默认的ARGB8888降低一半质量
+
+Android 尺寸压缩实现
+1.采样率 :同时改变 尺寸、内存大小、存储大小；
+BitmapFactory.Options.inSampleSize 值
+例如：inSampleSize>1 时，即 Bitmap 的长宽均变为原来的1/inSampleSize ,
+同时 Bitmap 的内存size则变为 1/（inSampleSize*inSampleSize） ;
+
+矩阵变换
+矩阵变化，过程中需要把Bitmap加载在内存中，所有要特别注意OOM问题；
+
+Android Matrix
+Matrix matrix = new Matrix();
+Matrix可以对图像进行缩放、旋转、平移、斜切等变换
+
+2.实际Android手机屏幕分辩率场与设计图差异
+
+
+https://blog.csdn.net/weixin_37577039/article/details/79777864?utm_medium=distribute.pc_relevant.none-task-blog-OPENSEARCH-5.compare&depth_1-utm_source=distribute.pc_relevant.none-task-blog-OPENSEARCH-5.compare
+
+https://www.cnblogs.com/shoneworn/p/6932638.html
+
+
+https://blog.csdn.net/silencezmz/article/details/79866009
+
+https://my.oschina.net/u/4611086?tab=newest&catalogId=7048969
+
+https://blog.csdn.net/xiaohanluo/article/details/52485037
+
+https://www.cnblogs.com/dasusu/p/9789389.html

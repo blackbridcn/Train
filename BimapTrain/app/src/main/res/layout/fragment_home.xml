@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <Button
+        android:id="@+id/text_qu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="质量压缩"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/qu_value"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/qu_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_shadow_end_color"
+        app:layout_constraintBottom_toBottomOf="@+id/text_qu"
+        app:layout_constraintLeft_toRightOf="@+id/text_qu"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_qu"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/text_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="尺寸压缩"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/layout_value"
+        app:layout_constraintTop_toBottomOf="@+id/text_qu" />
+
+    <EditText
+        android:id="@+id/layout_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/text_layout"
+        app:layout_constraintLeft_toRightOf="@+id/text_layout"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_layout"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/text_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="8dp"
+        android:text="SIZE："
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_layout" />
+
+
+    <Button
+        android:id="@+id/scale"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="缩放"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_size"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/rotate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="旋转"
+        app:layout_constraintLeft_toRightOf="@+id/scale"
+        app:layout_constraintTop_toBottomOf="@+id/text_size"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/translate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="5dp"
+        android:text="平移"
+        app:layout_constraintLeft_toRightOf="@+id/rotate"
+        app:layout_constraintTop_toBottomOf="@+id/text_size"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/skew"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="斜切"
+        app:layout_constraintLeft_toRightOf="@+id/translate"
+        app:layout_constraintTop_toBottomOf="@+id/text_size"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/sc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="正方形"
+        app:layout_constraintLeft_toRightOf="@+id/skew"
+        app:layout_constraintTop_toBottomOf="@+id/text_size"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/bitmap_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sc" />
+
+    <ImageView
+        android:id="@+id/bitmap_resule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bitmap_holder" />
+</androidx.constraintlayout.widget.ConstraintLayout>
